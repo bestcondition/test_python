@@ -1,3 +1,2 @@
-cd ~/code/test_python
-git pull
+(cd ~/code/test_python && git pull)
 docker-compose restart
