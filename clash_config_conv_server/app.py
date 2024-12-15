@@ -119,7 +119,8 @@ def convert(
     # 新规则放前面
     rules = new_rules + rules
     content['rules'] = rules
-    content['proxy_groups'] = proxy_groups
+    # 注意key别错了
+    content['proxy-groups'] = proxy_groups
     content['proxies'] = proxies
     return content
 
@@ -131,22 +132,22 @@ def index():
         # openai 的规则，来源：https://github.com/ddgksf2013/Filter/blob/master/OpenAi.list
         new_group_name=['OpenAI'],
         new_rules="""
-            DOMAIN,ai.cn,OpenAI
-            DOMAIN-SUFFIX,ai.com,OpenAI
-            DOMAIN-SUFFIX,auth0.com,OpenAI
-            DOMAIN-SUFFIX,challenges.cloudflare.com,OpenAI
-            DOMAIN-SUFFIX,client-api.arkoselabs.com,OpenAI
-            DOMAIN-SUFFIX,events.statsigapi.net,OpenAI
-            DOMAIN-SUFFIX,featuregates.org,OpenAI
-            DOMAIN-SUFFIX,identrust.com,OpenAI
-            DOMAIN-SUFFIX,intercom.io,OpenAI
-            DOMAIN-SUFFIX,intercomcdn.com,OpenAI
-            DOMAIN-SUFFIX,poe.com,OpenAI
-            DOMAIN-SUFFIX,sentry.io,OpenAI
-            DOMAIN-SUFFIX,stripe.com,OpenAI
-            DOMAIN-SUFFIX,oaistatic.com,OpenAI
-            DOMAIN-SUFFIX,oaiusercontent.com,OpenAI
-            DOMAIN-KEYWORD,openai,OpenAI
+DOMAIN,ai.cn,OpenAI
+DOMAIN-SUFFIX,ai.com,OpenAI
+DOMAIN-SUFFIX,auth0.com,OpenAI
+DOMAIN-SUFFIX,challenges.cloudflare.com,OpenAI
+DOMAIN-SUFFIX,client-api.arkoselabs.com,OpenAI
+DOMAIN-SUFFIX,events.statsigapi.net,OpenAI
+DOMAIN-SUFFIX,featuregates.org,OpenAI
+DOMAIN-SUFFIX,identrust.com,OpenAI
+DOMAIN-SUFFIX,intercom.io,OpenAI
+DOMAIN-SUFFIX,intercomcdn.com,OpenAI
+DOMAIN-SUFFIX,poe.com,OpenAI
+DOMAIN-SUFFIX,sentry.io,OpenAI
+DOMAIN-SUFFIX,stripe.com,OpenAI
+DOMAIN-SUFFIX,oaistatic.com,OpenAI
+DOMAIN-SUFFIX,oaiusercontent.com,OpenAI
+DOMAIN-KEYWORD,openai,OpenAI
         """.strip().splitlines(),
     )
     return {
