@@ -86,7 +86,7 @@ def convert(
     areas = list(area_to_pns.keys())
     for pg in proxy_groups:
         # 现有的group都可以选新加的area group
-        pg['proxies'] = areas + pg['proxies']
+        pg['proxies'] = pg['proxies'] + areas
     new_groups = []
     # 为每个area创建一个proxy-group
     for area, pns in area_to_pns.items():
@@ -101,8 +101,6 @@ def convert(
             "tolerance": 100
         }
         new_groups.append(j)
-    # 将新的组放在最前头
-    proxy_groups = new_groups + proxy_groups
     # 目前来说所有的代理组的名字，老的 和 区域 的都在
     now_gn = [
         pg['name']
@@ -110,7 +108,7 @@ def convert(
     ]
     # 添加新的代理组
     for gn in new_group_name:
-        proxy_groups.append({
+        new_groups.append({
             "name": gn,
             "type": "select",  # 模式为选择，选项为所有代理组
             "proxies": now_gn,
@@ -120,7 +118,7 @@ def convert(
     rules = new_rules + rules
     content['rules'] = rules
     # 注意key别错了
-    content['proxy-groups'] = proxy_groups
+    content['proxy-groups'] = proxy_groups + new_groups
     content['proxies'] = proxies
     return content
 
