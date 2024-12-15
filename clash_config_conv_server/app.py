@@ -87,6 +87,7 @@ def convert(
     for pg in proxy_groups:
         # 现有的group都可以选新加的area group
         pg['proxies'] = areas + pg['proxies']
+    new_groups = []
     # 为每个area创建一个proxy-group
     for area, pns in area_to_pns.items():
         # 可选为该区域的所有proxy
@@ -99,7 +100,9 @@ def convert(
             "interval": 300,
             "tolerance": 100
         }
-        proxy_groups.append(j)
+        new_groups.append(j)
+    # 将新的组放在最前头
+    proxy_groups = new_groups + proxy_groups
     # 目前来说所有的代理组的名字，老的 和 区域 的都在
     now_gn = [
         pg['name']
