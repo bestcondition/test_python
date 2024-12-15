@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5555:5555"
+    command: ["flask", "--app", "app:app", "run", "--port", "5555", "--host", "0.0.0.0"]
+    volumes:
+      - "./app.py:/app/app.py"
+    restart: always
