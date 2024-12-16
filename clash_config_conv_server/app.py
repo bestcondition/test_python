@@ -130,26 +130,45 @@ def convert(
 def index():
     x = convert(
         content=request.json['content'],
-        # openai 的规则，来源：https://github.com/ddgksf2013/Filter/blob/master/OpenAi.list
+        # openai 的规则，来源：https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/OpenAI/OpenAI.list
         new_group_name=['OpenAI'],
         new_rules="""
-DOMAIN,ai.cn,OpenAI
+DOMAIN,browser-intake-datadoghq.com,OpenAI
+DOMAIN,chat.openai.com.cdn.cloudflare.net,OpenAI
+DOMAIN,gemini.google.com,OpenAI
+DOMAIN,openai-api.arkoselabs.com,OpenAI
+DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,OpenAI
+DOMAIN,openaicomproductionae4b.blob.core.windows.net,OpenAI
+DOMAIN,production-openaicom-storage.azureedge.net,OpenAI
+DOMAIN,static.cloudflareinsights.com,OpenAI
 DOMAIN-SUFFIX,ai.com,OpenAI
+DOMAIN-SUFFIX,algolia.net,OpenAI
+DOMAIN-SUFFIX,api.statsig.com,OpenAI
 DOMAIN-SUFFIX,auth0.com,OpenAI
-DOMAIN-SUFFIX,challenges.cloudflare.com,OpenAI
+DOMAIN-SUFFIX,chatgpt.com,OpenAI
+DOMAIN-SUFFIX,chatgpt.livekit.cloud,OpenAI
 DOMAIN-SUFFIX,client-api.arkoselabs.com,OpenAI
 DOMAIN-SUFFIX,events.statsigapi.net,OpenAI
 DOMAIN-SUFFIX,featuregates.org,OpenAI
+DOMAIN-SUFFIX,host.livekit.cloud,OpenAI
 DOMAIN-SUFFIX,identrust.com,OpenAI
 DOMAIN-SUFFIX,intercom.io,OpenAI
 DOMAIN-SUFFIX,intercomcdn.com,OpenAI
-DOMAIN-SUFFIX,poe.com,OpenAI
-DOMAIN-SUFFIX,sentry.io,OpenAI
-DOMAIN-SUFFIX,stripe.com,OpenAI
+DOMAIN-SUFFIX,launchdarkly.com,OpenAI
 DOMAIN-SUFFIX,oaistatic.com,OpenAI
 DOMAIN-SUFFIX,oaiusercontent.com,OpenAI
+DOMAIN-SUFFIX,observeit.net,OpenAI
+DOMAIN-SUFFIX,openai.com,OpenAI
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net,OpenAI
+DOMAIN-SUFFIX,openaicom.imgix.net,OpenAI
+DOMAIN-SUFFIX,segment.io,OpenAI
+DOMAIN-SUFFIX,sentry.io,OpenAI
+DOMAIN-SUFFIX,stripe.com,OpenAI
+DOMAIN-SUFFIX,turn.livekit.cloud,OpenAI
 DOMAIN-KEYWORD,openai,OpenAI
-DOMAIN-SUFFIX,chatgpt.com,OpenAI
+IP-CIDR,24.199.123.28/32,no-resolve,OpenAI
+IP-CIDR,64.23.132.171/32,no-resolve,OpenAI
+IP-ASN,20473,no-resolve,OpenAI
         """.strip().splitlines(),
     )
     return {
