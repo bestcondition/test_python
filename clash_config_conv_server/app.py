@@ -168,7 +168,6 @@ DOMAIN-SUFFIX,turn.livekit.cloud,OpenAI
 DOMAIN-KEYWORD,openai,OpenAI
 IP-CIDR,24.199.123.28/32,OpenAI,no-resolve
 IP-CIDR,64.23.132.171/32,OpenAI,no-resolve
-IP-ASN,20473,OpenAI,no-resolve
         """.strip().splitlines(),
     )
     return {
