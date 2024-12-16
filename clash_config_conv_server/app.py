@@ -149,6 +149,7 @@ DOMAIN-SUFFIX,stripe.com,OpenAI
 DOMAIN-SUFFIX,oaistatic.com,OpenAI
 DOMAIN-SUFFIX,oaiusercontent.com,OpenAI
 DOMAIN-KEYWORD,openai,OpenAI
+DOMAIN-SUFFIX,chatgpt.com,OpenAI
         """.strip().splitlines(),
     )
     return {
